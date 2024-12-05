@@ -61,7 +61,9 @@ const storage = multer.diskStorage({
   
 
 const upload = multer({ storage });
-
+app.get('/', (req, res) => {
+  res.send('Welcome to server')
+})
 // Auth route to register or login users
 app.post("/api/auth", async (req, res) => {
   const { email, password } = req.body;
