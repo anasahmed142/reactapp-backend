@@ -24,8 +24,6 @@ const { users, files } = db.data;
 // Initialize Express app
 const app = express();
 
-app.use(cors());
-app.options('*', cors());
 // Get the current directory of the module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -39,6 +37,7 @@ if (!fs.existsSync(uploadDir)) {
 
 // Set up CORS and JSON middlewares
 app.use(cors());
+app.options('*', cors());
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
@@ -65,7 +64,7 @@ app.get('/', (req, res) => {
   res.send('Welcome to server')
 })
 // Auth route to register or login users
-app.post("/api/auth", async (req, res) => {
+app.post("/auth", async (req, res) => {
   const { email, password } = req.body;
 
   const user = users.find(user => user.email === email);
@@ -89,7 +88,7 @@ app.post("/api/auth", async (req, res) => {
 });
 
 // Verify the JWT token
-app.post("/api/verify", (req, res) => {
+app.post("/verify", (req, res) => {
   const tokenHeaderKey = "jwt-token";
   const authToken = req.headers[tokenHeaderKey];
 
@@ -110,7 +109,7 @@ app.post("/api/verify", (req, res) => {
 });
 
 // File upload route
-app.post('/api/upload', upload.array('files'), async (req, res) => {
+app.post('/upload', upload.array('files'), async (req, res) => {
   const authToken = req.headers['jwt-token'];
 
   if (!authToken) {
@@ -158,7 +157,7 @@ app.post('/api/upload', upload.array('files'), async (req, res) => {
 });
 
 // Fetch all uploaded files
-app.get('/api/files', (req, res) => {
+app.get('/files', (req, res) => {
   const authToken = req.headers['jwt-token'];
 
   if (!authToken) {
@@ -178,7 +177,7 @@ app.get('/api/files', (req, res) => {
 });
 
 // Get uploaded files for a user
-app.get('/api/get-uploaded-files', (req, res) => {
+app.get('/get-uploaded-files', (req, res) => {
   const authToken = req.headers['jwt-token'];
 
   if (!authToken) {
@@ -204,7 +203,7 @@ app.get('/api/get-uploaded-files', (req, res) => {
   }
 });
 // Publicly accessible files (by fileId)
-app.get('/api/files/:fileId', (req, res) => {
+app.get('/files/:fileId', (req, res) => {
   const { fileId } = req.params;
   const file = files.find(file => file.fileId === fileId);
 
@@ -226,7 +225,7 @@ app.get('/api/files/:fileId', (req, res) => {
 });
 
 // Get public files (if needed)
-app.get('/api/public-files', (req, res) => {
+app.get('/public-files', (req, res) => {
   res.json({ files });
 });
 
