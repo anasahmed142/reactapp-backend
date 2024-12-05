@@ -23,16 +23,9 @@ const { users, files } = db.data;
 
 // Initialize Express app
 const app = express();
-// Enable CORS for all routes
-const corsOptions = {
-  origin: 'http://localhost:3000',  // Make sure this matches your React app's URL
-  methods: ['GET', 'POST', 'OPTIONS'],
-  allowedHeaders: ['Content-Type', 'Authorization'],
-  credentials: true,  // Allow credentials (cookies, authorization headers, etc.)
-};
 
-app.use(cors(corsOptions));
-app.options('*', cors(corsOptions));
+app.use(cors());
+app.options('*', cors());
 // Get the current directory of the module
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
