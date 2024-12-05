@@ -1,0 +1,42 @@
+{
+  "users": [
+    {
+      "email": "anas@google.dev",
+      "password": "$2b$10$EpOdlAXdVin9BhT5mCCyQ.I8TxEfEDNM8QX3G.2gpfAyTtnW77gA2"
+    }
+  ],
+  "files": [
+    {
+      "fileId": "HBQhaGjON7E4FCE_Gt4-6",
+      "filename": "1733306484236.png",
+      "path": "C:\\Users\\ehhwh\\OneDrive\\Documents\\Desktop\\reactapp\\backend\\uploads\\1733306484236.png",
+      "tags": "asd",
+      "views": 43,
+      "userEmail": "anas@google.dev"
+    },
+    {
+      "fileId": "kinNiabBORUoMIGNiOPeK",
+      "filename": "1733309972549.png",
+      "path": "C:\\Users\\ehhwh\\OneDrive\\Documents\\Desktop\\reactapp\\backend\\uploads\\1733309972549.png",
+      "tags": "Untitled",
+      "views": 4,
+      "userEmail": "anas@google.dev"
+    },
+    {
+      "fileId": "WcVFrjgHWHF-HemOrqm4F",
+      "filename": "1733310034288.png",
+      "path": "C:\\Users\\ehhwh\\OneDrive\\Documents\\Desktop\\reactapp\\backend\\uploads\\1733310034288.png",
+      "tags": "Untitled",
+      "views": 2,
+      "userEmail": "anas@google.dev"
+    },
+    {
+      "fileId": "LnXGVPJ6n9shUme-LsDcz",
+      "filename": "1733310549300.png",
+      "path": "C:\\Users\\ehhwh\\OneDrive\\Documents\\Desktop\\reactapp\\backend\\uploads\\1733310549300.png",
+      "tags": "Untitled",
+      "views": 0,
+      "userEmail": "anas@google.dev"
+    }
+  ]
+}
